@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { boolean } from "webidl-conversions";
 
 const AdminSchema = mongoose.Schema({
     nombre: {
@@ -20,15 +19,15 @@ const AdminSchema = mongoose.Schema({
         default: "ADMIN"
     },
     estado: {
-        type: boolean,
+        type: Boolean,
         default: true
     }
 });
 
-AdminSchema.methods.toJson = function(){
-    const {__v, password, _id, ...admin } = this.toObject();
+AdminSchema.methods.toJSON = function(){
+    const { __v, password, _id, ...admin} = this.toObject();
     admin.uid = _id;
     return admin;
-}
+  }
 
 export default mongoose.model('Admin', AdminSchema);
