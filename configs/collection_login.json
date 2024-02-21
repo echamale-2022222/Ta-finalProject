@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "login",
+    "dateExported": "2024-02-21T23:07:31.288Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "662d84f7-9a1d-4a9b-97fd-0e71bec3ba90",
+            "colId": "fd624b6c-4b2d-4962-a646-6886c98f1abb",
+            "containerId": "",
+            "name": "post login",
+            "url": "http://localhost:3000/sales/v2/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-21T22:11:05.001Z",
+            "modified": "2024-02-21T23:04:29.282Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"correo\": \"holadsa@gmail.com\",\n  \"password\": \"123123\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
