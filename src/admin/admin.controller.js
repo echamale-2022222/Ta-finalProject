@@ -3,8 +3,8 @@ import bycryptjs from "bcryptjs";
 import Admin from "./admin.model.js";
 
 export const adminPost = async (req = request, res = response) => {
-    const { nombre, correo, password } = req.body;
-    const admin = new Admin({ nombre, correo, password });
+    const { name, mail, password } = req.body;
+    const admin = new Admin({ name, mail, password });
 
     const salt = bycryptjs.genSaltSync();
     admin.password = bycryptjs.hashSync(password, salt);

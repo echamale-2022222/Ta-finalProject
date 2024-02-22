@@ -85,9 +85,9 @@ export const mostSoldProduct = async (req, res) => {
 
 export const specificDetails = async (req, res = response) => {
     const { id } = req.params;
-    const {_id, productName, productDescription, productCategory, ...resto} = req.body;
+    const {_id, productName, productDescription, productCategory, ...rest} = req.body;
 
-    await Product.findByIdAndUpdate(id, resto);
+    await Product.findByIdAndUpdate(id, rest);
 
     const product = await Product.findOne({_id: id});
 
@@ -99,9 +99,9 @@ export const specificDetails = async (req, res = response) => {
 
 export const updateProduct = async (req, res = response) => {
     const { id } = req.params;
-    const {_id, productPrice, supplier, stock, ...resto} = req.body;
+    const {_id, productPrice, supplier, stock, ...rest} = req.body;
 
-    await Product.findByIdAndUpdate(id, resto);
+    await Product.findByIdAndUpdate(id, rest);
 
     const product = await Product.findOne({_id: id});
 
@@ -119,8 +119,7 @@ export const removedProduct = async (req, res) => {
 
     res.status(200).json({
         msg:'Removed product', 
-        productDel,
-        //usuarioAutenticado 
+        productDel, 
     });
 }
 

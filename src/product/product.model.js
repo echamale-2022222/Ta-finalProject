@@ -16,7 +16,7 @@ const ProductSchema = mongoose.Schema({
     },
     productCategory:{
         type: String,
-        required: [true, "Product category is mandatory"]
+        default: "Undefined"
     },
     supplier:{
         type: String,
