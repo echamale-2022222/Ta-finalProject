@@ -1,6 +1,13 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { productPost, productCatalog, productsInventory, soldOut, mostSoldProduct } from "./product.controller.js";
+import { productPost, 
+         productCatalog, 
+         productsInventory, 
+         soldOut, 
+         mostSoldProduct,
+         specificDetails, 
+         updateProduct,
+         removedProduct} from "./product.controller.js";
 
 const router = Router();
 
@@ -21,5 +28,23 @@ router.get("/inventory", productsInventory);
 router.get("/soldOut", soldOut);
 
 router.get("/mostSoldProduct", mostSoldProduct);
+
+router.put(
+    "/update/:id",
+    [
+        check("id", "NO es un id valido").isMongoId(),      
+    ], specificDetails);
+
+router.put(
+    "/:id",
+    [
+        check("id", "NO es un id valido").isMongoId(),      
+    ], updateProduct);
+
+router.delete(
+    "/:id",
+    [
+        check("id", "NO es un id valido").isMongoId(),      
+    ], removedProduct);
 
 export default router;

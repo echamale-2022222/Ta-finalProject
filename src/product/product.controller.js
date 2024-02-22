@@ -83,3 +83,44 @@ export const mostSoldProduct = async (req, res) => {
     }
 };
 
+export const specificDetails = async (req, res = response) => {
+    const { id } = req.params;
+    const {_id, productName, productDescription, productCategory, ...resto} = req.body;
+
+    await Product.findByIdAndUpdate(id, resto);
+
+    const product = await Product.findOne({_id: id});
+
+    res.status(200).json({
+        msg: 'Updated product',
+        product
+    });
+}
+
+export const updateProduct = async (req, res = response) => {
+    const { id } = req.params;
+    const {_id, productPrice, supplier, stock, ...resto} = req.body;
+
+    await Product.findByIdAndUpdate(id, resto);
+
+    const product = await Product.findOne({_id: id});
+
+    res.status(200).json({
+        msg: 'Updated product',
+        product
+    });
+}
+
+export const removedProduct = async (req, res) => {
+    const {id} = req.params;
+
+    const product = await Product.findByIdAndUpdate(id, { availability: false});
+    const productDel = await Product.findOne({_id: id});
+
+    res.status(200).json({
+        msg:'Removed product', 
+        productDel,
+        //usuarioAutenticado 
+    });
+}
+
