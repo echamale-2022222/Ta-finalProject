@@ -32,19 +32,19 @@ router.get("/mostSoldProduct", mostSoldProduct);
 router.put(
     "/update/:id",
     [
-        check("id", "NO es un id valido").isMongoId(),      
+        check("id", "It is not a valid id").isMongoId(),      
     ], specificDetails);
 
 router.put(
     "/:id",
     [
-        check("id", "NO es un id valido").isMongoId(),      
+        check("id", "It is not a valid id").isMongoId(),      
     ], updateProduct);
 
 router.delete(
     "/:id",
     [
-        check("id", "NO es un id valido").isMongoId(),      
+        check("id", "It is not a valid id").isMongoId(),      
     ], removedProduct);
 
 export default router;
