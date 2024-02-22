@@ -20,7 +20,7 @@ const ClientSchema = mongoose.Schema({
   },
   state: {
     type: Boolean,
-    default: true,
+    default: true
   }
 });
 

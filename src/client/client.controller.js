@@ -12,6 +12,7 @@ export const clientPost = async (req = request, res = response) => {
     await client.save();
 
     res.status(200).json({
+        msg: "Customer added to database",
         client
     });
 }

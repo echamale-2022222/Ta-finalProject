@@ -12,6 +12,7 @@ export const adminPost = async (req = request, res = response) => {
     await admin.save();
 
     res.status(200).json({
+        msg: "Administrator added to database",
         admin
     });
 }
