@@ -1,6 +1,14 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { addAdmin, addClient, updateRoleAdmin, updateRoleClient, users } from "./user.controller.js";
+import { addAdmin, 
+        addClient, 
+        removedAdmin, 
+        removedClient, 
+        updateRoleAdmin, 
+        updateRoleClient,
+        updatedAdmin, 
+        updatedClient, 
+        users } from "./user.controller.js";
 
 const router = Router();
 
@@ -34,5 +42,28 @@ router.put(
         check("id", "It is not a valid id").isMongoId(),      
     ], updateRoleClient);
 
+router.put(
+    "/updateAd/:id",
+    [
+        check("id", "It is not a valid id").isMongoId(),      
+    ], updatedAdmin);
+
+router.put(
+    "/updateCl/:id",
+    [
+        check("id", "It is not a valid id").isMongoId(),      
+    ], updatedClient);
     
+router.delete(
+    "/delAdmin/:id",
+    [
+        check("id", "It is not a valid id").isMongoId(),
+    ], removedAdmin);
+
+router.delete(
+    "/delClient/:id",
+    [
+        check("id", "It is not a valid id").isMongoId(),
+    ], removedClient);
+
 export default router;

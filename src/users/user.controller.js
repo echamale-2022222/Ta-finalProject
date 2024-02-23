@@ -126,3 +126,55 @@ export const updateRoleClient = async (req, res = response) => {
         });
     }
 }
+
+export const updatedAdmin = async (req, res) => {
+    const { id } = req.params;
+    const { _id, role, state,...rest} = req.body;
+
+    await Admin.findByIdAndUpdate(id, rest);
+
+    const admin = await Admin.findOne({_id: id});
+
+    res.status(200).json({
+        msg: "Updated admin",
+        admin
+    });
+}
+
+export const updatedClient = async (req, res) => {
+    const { id } = req.params;
+    const { _id, role, state,...rest} = req.body;
+
+    await Client.findByIdAndUpdate(id, rest);
+
+    const client = await Client.findOne({_id: id});
+
+    res.status(200).json({
+        msg: "Updated client",
+        client
+    });
+}
+
+export const removedAdmin = async (req, res) => {
+    const { id } = req.params;
+
+    const admin = await Admin.findByIdAndUpdate(id, {state: false});
+    const adminDel = await Admin.findOne({_id: id});
+
+    res.status(200).json({
+        msg: "Removed Admin",
+        adminDel
+    });
+}
+
+export const removedClient = async (req, res) => {
+    const { id } = req.params;
+
+    const client = await Client.findByIdAndUpdate(id, {state: false});
+    const clientDel = await Client.findOne({_id: id});
+
+    res.status(200).json({
+        msg: "Removed client",
+        clientDel
+    });
+}
