@@ -7,8 +7,8 @@ const router = Router();
 router.post(
     "/",
     [
-        check("nombre", "Administrator name cannot be empty").not().isEmpty(),
-        check("correo", "This is not a valid email").isEmail(),
+        check("name", "Administrator name cannot be empty").not().isEmpty(),
+        check("mail", "This is not a valid email").isEmail(),
         check("password", "Password must be greater than 6 characters").isLength({min:6}),
     ], adminPost)
 
