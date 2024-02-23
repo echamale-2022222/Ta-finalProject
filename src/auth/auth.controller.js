@@ -18,7 +18,7 @@ try {
         }
     }
 
-    if (!usuario.estado) {
+    if (!usuario.state) {
         return res.status(400).json({
             msg: "The user does not exist in the database",
         });
