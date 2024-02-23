@@ -1,0 +1,170 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "user_management",
+    "dateExported": "2024-02-23T21:32:55.089Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "85e8d866-88c7-4a26-9cca-b890713c10c6",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "get users",
+            "url": "http://localhost:3000/sales/v2/user/addClient",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-23T05:17:02.418Z",
+            "modified": "2024-02-23T05:46:59.579Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"amalia\",\n  \"mail\": \"amalia123123@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9c4e2182-eda8-4c74-8f22-9d701e1269b7",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "post admin",
+            "url": "http://localhost:3000/sales/v2/user/addAdmin",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-23T05:44:44.490Z",
+            "modified": "2024-02-23T05:47:16.167Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"maica\",\n  \"mail\": \"maica123123@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ed09df93-d40a-4977-ac09-7636cc32a2cd",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "post client",
+            "url": "http://localhost:3000/sales/v2/user",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-23T05:44:50.865Z",
+            "modified": "2024-02-23T21:29:52.195Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"maica\",\n  \"mail\": \"maica123123@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e216df1a-73d3-4ed2-9f26-64407214b416",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "put updateRoleAdmin",
+            "url": "http://localhost:3000/sales/v2/user/updateClient/65d831646af9f600c6b34030",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-23T05:53:52.186Z",
+            "modified": "2024-02-23T21:31:00.532Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"role\": \"ADMIN\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a64391b0-ea7f-44f6-adb0-82074191ac83",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "put updateRoleClient",
+            "url": "http://localhost:3000/sales/v2/user/updateAdmin/65d82fa2fdb52ed939af0fbf",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-02-23T06:07:01.081Z",
+            "modified": "2024-02-23T21:24:33.497Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"role\": \"ADMIN\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5408d34f-a734-4cb6-b6dd-66a0e5d0e74b",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "put updateAdmin",
+            "url": "http://localhost:3000/sales/v2/user/updateAd/65d831646af9f600c6b34030",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-02-23T21:09:46.468Z",
+            "modified": "2024-02-23T21:14:47.789Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Edwar\",\n  \"mail\": \"echamale@gmail.com\",\n  \"password\": 789456\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "86cc006b-cbf2-414f-af7a-a5b26c4b1195",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "put updateClient",
+            "url": "http://localhost:3000/sales/v2/user/updateCl/65d831606af9f600c6b3402e",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2024-02-23T21:13:39.320Z",
+            "modified": "2024-02-23T21:15:36.397Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Juan pablo\",\n  \"mail\": \"jpablo@gmail.com\",\n  \"password\": 789456\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "29cd4479-9c12-4265-b7bf-d767e789d0ab",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "delete removedAdmin",
+            "url": "http://localhost:3000/sales/v2/user/delAdmin/65d82fa2fdb52ed939af0fbf",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2024-02-23T21:22:06.967Z",
+            "modified": "2024-02-23T21:22:48.149Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "33f67198-bcac-4c92-bdba-11cdefd1a175",
+            "colId": "90b54b6b-2cb9-4363-a1f3-f5cbe7e8f4b0",
+            "containerId": "",
+            "name": "delete removedClient",
+            "url": "http://localhost:3000/sales/v2/user/delClient/65d831606af9f600c6b3402e",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2024-02-23T21:26:10.923Z",
+            "modified": "2024-02-23T21:26:46.181Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
