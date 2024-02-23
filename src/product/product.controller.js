@@ -60,21 +60,24 @@ export const soldOut = async (req, res) => {
 
 export const mostSoldProduct = async (req, res) => {
     try {
-        const mostSoldAvailableProduct = await Product.aggregate([
-            { $match: { availability: true } },
-            { $sort: { timesBought: -1 } },
-            { $limit: 1 }
+        const mostSoldAvailableProducts = await Product.aggregate([
+            { $match: { availability: true, timesBought: { $gt: 0 } } },
+            { $group: { _id: "$timesBought", products: { $push: "$$ROOT" } } },
+            { $sort: { "_id": -1 } },
+            { $limit: 5 },
+            { $unwind: "$products" },
+            { $replaceRoot: { newRoot: "$products" } }
         ]);
-
-        if (mostSoldAvailableProduct.length === 0 || mostSoldAvailableProduct[0].timesBought === 0) {
+    
+        if (mostSoldAvailableProducts.length === 0) {
             return res.status(404).json({
                 msg: "There are no matches"
             });
         }
-
+    
         res.status(200).json({
-            msg: "Most sold available product",
-            product: mostSoldAvailableProduct[0]
+            msg: "Most sold available products",
+            products: mostSoldAvailableProducts
         });
     } catch (error) {
         res.status(500).json({
