@@ -4,13 +4,14 @@ import Client from '../client/client.model.js'
 import { generateJWT } from '../helpers/generate-jwt.js'; 
 
 export const login = async (req, res) => {
-    const { correo, password } = req.body;
+    const { mail, password } = req.body;
 
 try {
-    let usuario = await Admin.findOne({ correo });
+
+    let usuario = await Admin.findOne({ mail });
 
     if (!usuario) {
-        usuario = await Client.findOne({ correo });
+        usuario = await Client.findOne({ mail });
         if (!usuario) {
             return res.status(400).json({
                 msg: "Incorrect credentials, email does not exist in the database."

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import Admin from '../admin/admin.model';
-import Client from '../client/client.model';
+import Admin from '../admin/admin.model.js';
+import Client from '../client/client.model.js';
 import { request, response } from 'express';
 
 export const validateJWT = async(req = request, res = response, next)=> {
@@ -21,7 +21,7 @@ export const validateJWT = async(req = request, res = response, next)=> {
             });
         }
 
-        if(!admin.estado){
+        if(!admin.state){
             return res.status(401).json({
                 msg: "Invalid token, admin with false status"
             });
