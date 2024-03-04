@@ -49,7 +49,7 @@ export const productsInventory = async (req, res) => {
             Product.find(query)
         ]);
         
-        const [productsFalse, productsAssets] = await Promise.all([
+        const [productsFalse, productsDisabled] = await Promise.all([
             Product.countDocuments(query2),
             Product.find(query2)
         ]);
@@ -57,7 +57,7 @@ export const productsInventory = async (req, res) => {
         res.status(200).json({
             msg: `Products available: ${productsTrue} and products not available: ${productsFalse}`,
             productsActive,
-            productsAssets
+            productsDisabled
         });
     } else {
         return res.status(401).json({
