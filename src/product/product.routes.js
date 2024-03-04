@@ -25,7 +25,7 @@ router.post(
 
 router.get("/", productCatalog);
 
-router.get("/inventory", productsInventory);
+router.get("/inventory", validateJWT, productsInventory);
 
 router.get("/soldOut", soldOut);
 
