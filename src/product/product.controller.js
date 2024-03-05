@@ -197,3 +197,20 @@ export const removedProduct = async (req, res) => {
     }
 }
 
+export const productByName = async (req, res) => {
+    const { productName } = req.params;
+
+    const product = await Product.findOne({ productName });
+
+    if (!product) {
+        return res.status(404).json({
+            msg: "There are no matches, be sure to write the name of the product (with accents, upper and lower case)."
+        });
+    } else {
+        res.status(200).json({
+            msg: "Product encontrated by name",
+            product
+        });
+    }
+}
+
