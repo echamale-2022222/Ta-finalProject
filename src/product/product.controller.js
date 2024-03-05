@@ -1,5 +1,6 @@
 import { request, response } from "express";
 import Product from "./product.model.js";
+import Category from "../category/category.model.js";
 
 export const productPost = async (req, res) => {
     const admin = req.admin.role;
@@ -214,3 +215,27 @@ export const productByName = async (req, res) => {
     }
 }
 
+export const productsByCategory = async (req, res) => {
+    const { categoryName } = req.params;
+
+    const category = await Category.findOne({ categoryName });
+
+    if (!category) {
+        return res.status(404).json({
+            msg: "Category not found"
+        });
+    } else {
+        const products = await Product.find({
+            availability: true,
+            productCategory: category._id
+        }).populate({
+            path: "productCategory",
+            select: "categoryName -_id"
+        });
+    
+        res.status(200).json({
+            msg: `Products in the category ${category.categoryName}`,
+            products
+        });
+    }
+}
