@@ -18,6 +18,7 @@ router.post(
         validateJWT,
         check("productName", "Product name is required").not().isEmpty(),
         check("productDescription", "Product description is mandatory").not().isEmpty(),
+        check("productCategory", "Product category is required").not().isEmpty(),
         check("productPrice", "Product price is required").not().isEmpty(),
         check("supplier", "The product source is obligatory").not().isEmpty(),
         check("stock", "The stock of the product is obligatory").not().isEmpty(),

@@ -15,8 +15,8 @@ const ProductSchema = mongoose.Schema({
         required: [true, "Product price is required"]
     },
     productCategory:{
-        type: String,
-        default: "Undefined"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
     },
     supplier:{
         type: String,
@@ -37,7 +37,7 @@ const ProductSchema = mongoose.Schema({
 });
 
 ProductSchema.methods.toJSON = function(){
-    const { __v, _id, ...product} = this.toObject();
+    const { __v, _id, availability, timesBought, stock, supplier, ...product} = this.toObject();
     product.uid = _id;
     return product;
 }

@@ -4,8 +4,6 @@ import Product from "./product.model.js";
 export const productPost = async (req, res) => {
     const admin = req.admin.role;
 
-    console.log(user);
-
     if (admin !== "ADMIN") {
         return res.status(401).json({
             msg: "You are not authorized to create a product"
@@ -28,7 +26,9 @@ export const productCatalog = async (req, res) => {
 
     const [quantityProducts, products] = await Promise.all([
         Product.countDocuments(query),
-        Product.find(query)
+        Product.find(query).populate({
+            path: "productCategory",
+            select: "categoryName -_id"})
     ]);
 
     res.status(200).json({
@@ -46,12 +46,16 @@ export const productsInventory = async (req, res) => {
     if (admin === "ADMIN") {
         const [productsTrue, productsActive] = await Promise.all([
             Product.countDocuments(query),
-            Product.find(query)
+            Product.find(query).populate({
+                path: "productCategory",
+                select: "categoryName -_id"})
         ]);
         
         const [productsFalse, productsDisabled] = await Promise.all([
             Product.countDocuments(query2),
-            Product.find(query2)
+            Product.find(query2).populate({
+                path: "productCategory",
+                select: "categoryName -_id"})
         ]);
         
         res.status(200).json({
@@ -71,12 +75,13 @@ export const soldOut = async (req, res) => {
 
     const [productsOutOfStock, products] = await Promise.all([
         Product.countDocuments(query),
-        Product.find(query)
+        Product.find(query).populate({
+            path: "productCategory",
+            select: "categoryName -_id"})
     ]);
 
     res.status(200).json({
-        msg: "Products currently out of stock",
-        productsOutOfStock,
+        msg: `Products out of stock or disabled in the database: ${productsOutOfStock}`,
         products
     });
 }
