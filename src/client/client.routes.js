@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
 import { clientPost } from "./client.controller.js";
-import { productCatalog } from "../product/product.controller.js";
+import { mostSoldProduct, productCatalog } from "../product/product.controller.js";
 
 const router = Router();
 
@@ -14,5 +14,7 @@ router.post(
     ], clientPost)
 
 router.get("/catalog", productCatalog);
+
+router.get("/bestSellingProductsCatalog", mostSoldProduct);
 
 export default router;
