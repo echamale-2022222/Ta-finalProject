@@ -1,0 +1,83 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "product _exploration",
+    "dateExported": "2024-03-05T23:19:58.602Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "8a039b6b-d50a-4aef-b502-3493979dd99c",
+            "colId": "c8b11ce6-8d42-4b93-b2f1-950c045a6d5d",
+            "containerId": "",
+            "name": "get productCatalog",
+            "url": "http://localhost:3000/sales/v2/client/catalog",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-05T22:47:20.990Z",
+            "modified": "2024-03-05T22:47:48.062Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c69dbb88-8aa0-4c8b-8e42-513bf6316fde",
+            "colId": "c8b11ce6-8d42-4b93-b2f1-950c045a6d5d",
+            "containerId": "",
+            "name": "get bestSellingProductsCatalog",
+            "url": "http://localhost:3000/sales/v2/client/bestSellingProductsCatalog",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-05T22:49:22.582Z",
+            "modified": "2024-03-05T22:51:04.848Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "5c684cae-9b68-42aa-969a-9483c97dfca8",
+            "colId": "c8b11ce6-8d42-4b93-b2f1-950c045a6d5d",
+            "containerId": "",
+            "name": "get searchByName",
+            "url": "http://localhost:3000/sales/v2/client/searchByName/Powerade rojo",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-05T22:58:04.327Z",
+            "modified": "2024-03-05T23:00:53.061Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "649f5125-d3b5-4679-9856-43912c305a8a",
+            "colId": "c8b11ce6-8d42-4b93-b2f1-950c045a6d5d",
+            "containerId": "",
+            "name": "get existingCategories",
+            "url": "http://localhost:3000/sales/v2/client/categories",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-05T23:02:35.633Z",
+            "modified": "2024-03-05T23:03:37.730Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "d321b33c-6d75-4115-a983-09d0b2dc80ec",
+            "colId": "c8b11ce6-8d42-4b93-b2f1-950c045a6d5d",
+            "containerId": "",
+            "name": "get productsByCategory",
+            "url": "http://localhost:3000/sales/v2/client/searchByCategory/Not assigned",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-03-05T23:11:23.060Z",
+            "modified": "2024-03-05T23:18:03.816Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        }
+    ]
+}
