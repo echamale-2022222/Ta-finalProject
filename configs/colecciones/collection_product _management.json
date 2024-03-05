@@ -1,135 +1,165 @@
 {
     "client": "Thunder Client",
     "collectionName": "product _management",
-    "dateExported": "2024-02-22T04:30:47.361Z",
+    "dateExported": "2024-03-05T08:59:47.905Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "3aacc5c4-0031-4e10-a0ec-61a9263c94b5",
-            "colId": "28155c9f-d2a7-489d-af25-e6696aed9378",
+            "_id": "df4d44f6-5cc0-44d7-9964-877a18d06bfd",
+            "colId": "b8fad9e2-5438-41fa-87ce-53a45b290e77",
             "containerId": "",
             "name": "post addProduct",
             "url": "http://localhost:3000/sales/v2/product",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2024-02-22T03:04:59.452Z",
-            "modified": "2024-02-22T03:40:16.361Z",
-            "headers": [],
+            "created": "2024-03-05T07:42:15.946Z",
+            "modified": "2024-03-05T08:09:33.100Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU2Y2I5NmEzOGExMjFhMzE3ZThmODIiLCJpYXQiOjE3MDk2MjQ5NTksImV4cCI6MTcwOTY1Mzc1OX0.QMB-9fnxR2O481Y5Z-_dGttPmR-A2FCf2gL_3_gQtGQ"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \n\"productName\": \"Coca 3L\",\n\"productDescription\": \"La mejor coca\",\n\"productPrice\": 15.25,\n\"productCategory\": \"ninguna\",\n\"supplier\": \"Coca-cola\",\n\"stock\": 25\n}",
+                "raw": "{\n\"productName\": \"Coca 3L\",\n\"productDescription\": \"La mejor coca\",\n\"productPrice\": 15.25,\n\"productCategory\": \"65e6d308b65c34f5788e54db\",\n\"supplier\": \"Coca-cola\",\n\"stock\": 25\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
-            "_id": "6913c896-5cb1-419d-9dea-3b1ebefc8025",
-            "colId": "28155c9f-d2a7-489d-af25-e6696aed9378",
+            "_id": "e8d7fc3d-2616-432e-8d3b-c7b6cc2ae747",
+            "colId": "b8fad9e2-5438-41fa-87ce-53a45b290e77",
             "containerId": "",
             "name": "get productCatalog",
             "url": "http://localhost:3000/sales/v2/product",
             "method": "GET",
             "sortNum": 30000,
-            "created": "2024-02-22T03:05:53.953Z",
-            "modified": "2024-02-22T03:07:15.898Z",
+            "created": "2024-03-05T07:42:15.947Z",
+            "modified": "2024-03-05T07:42:15.947Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "a79e961f-6436-4024-9058-5a28de63c7f9",
-            "colId": "28155c9f-d2a7-489d-af25-e6696aed9378",
+            "_id": "a26c63a9-6adc-4df7-adf8-f9a6286aeb23",
+            "colId": "b8fad9e2-5438-41fa-87ce-53a45b290e77",
             "containerId": "",
             "name": "get productInventory",
             "url": "http://localhost:3000/sales/v2/product/inventory",
             "method": "GET",
             "sortNum": 40000,
-            "created": "2024-02-22T03:14:17.715Z",
-            "modified": "2024-02-22T03:18:49.235Z",
-            "headers": [],
+            "created": "2024-03-05T07:42:15.948Z",
+            "modified": "2024-03-05T07:51:24.242Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU2Y2I5NmEzOGExMjFhMzE3ZThmODIiLCJpYXQiOjE3MDk2MjQ5NTksImV4cCI6MTcwOTY1Mzc1OX0.QMB-9fnxR2O481Y5Z-_dGttPmR-A2FCf2gL_3_gQtGQ"
+                }
+            ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
-            "_id": "970a4a8f-c880-48e5-bb36-ed503edf488f",
-            "colId": "28155c9f-d2a7-489d-af25-e6696aed9378",
+            "_id": "fc8c8892-28ac-4588-9e5c-9fcd6460a8d3",
+            "colId": "b8fad9e2-5438-41fa-87ce-53a45b290e77",
             "containerId": "",
             "name": "get productSoldOut",
             "url": "http://localhost:3000/sales/v2/product/soldOut",
             "method": "GET",
             "sortNum": 40000,
-            "created": "2024-02-22T03:22:55.241Z",
-            "modified": "2024-02-22T03:23:12.973Z",
+            "created": "2024-03-05T07:42:15.949Z",
+            "modified": "2024-03-05T07:42:15.949Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "c4f60e00-e660-4fa7-83b1-01ab3e292458",
-            "colId": "28155c9f-d2a7-489d-af25-e6696aed9378",
+            "_id": "757279d9-5f68-40a1-a173-2e765c907c79",
+            "colId": "b8fad9e2-5438-41fa-87ce-53a45b290e77",
             "containerId": "",
             "name": "get mostSoldProduct",
             "url": "http://localhost:3000/sales/v2/product/mostSoldProduct",
             "method": "GET",
             "sortNum": 50000,
-            "created": "2024-02-22T03:31:49.704Z",
-            "modified": "2024-02-22T03:32:07.721Z",
+            "created": "2024-03-05T07:42:15.950Z",
+            "modified": "2024-03-05T07:42:15.950Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "515474e4-2f02-4ab9-b784-db16f885e5ae",
-            "colId": "28155c9f-d2a7-489d-af25-e6696aed9378",
+            "_id": "d231180a-21af-4635-8d46-2d2d17976d3d",
+            "colId": "b8fad9e2-5438-41fa-87ce-53a45b290e77",
             "containerId": "",
             "name": "put detailsProducts",
-            "url": "http://localhost:3000/sales/v2/product/update/65d6b7f05cfdc08e153d4625",
+            "url": "http://localhost:3000/sales/v2/product/update/65e6cece06cd7cb11d22ad53",
             "method": "PUT",
             "sortNum": 60000,
-            "created": "2024-02-22T04:08:55.058Z",
-            "modified": "2024-02-22T04:17:35.274Z",
-            "headers": [],
+            "created": "2024-03-05T07:42:15.951Z",
+            "modified": "2024-03-05T07:54:05.342Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU2Y2I5NmEzOGExMjFhMzE3ZThmODIiLCJpYXQiOjE3MDk2MjQ5NTksImV4cCI6MTcwOTY1Mzc1OX0.QMB-9fnxR2O481Y5Z-_dGttPmR-A2FCf2gL_3_gQtGQ"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"productPrice\": 25.85,\n  \"supplier\": \"Made china\",\n  \"stock\": 15\n}",
+                "raw": "{\n  \"productPrice\": 20.20,\n  \"supplier\": \"Coca Cola camion\",\n  \"stock\": 15\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
-            "_id": "b9196205-d9b7-4102-a5ca-c4858b21c1ef",
-            "colId": "28155c9f-d2a7-489d-af25-e6696aed9378",
+            "_id": "520e8466-a0c3-408c-9d16-d4b52891a8b4",
+            "colId": "b8fad9e2-5438-41fa-87ce-53a45b290e77",
             "containerId": "",
             "name": "put updateProduct",
-            "url": "http://localhost:3000/sales/v2/product/65d6b7f05cfdc08e153d4625",
+            "url": "http://localhost:3000/sales/v2/product/65e6cece06cd7cb11d22ad53",
             "method": "PUT",
             "sortNum": 70000,
-            "created": "2024-02-22T04:18:14.002Z",
-            "modified": "2024-02-22T04:19:51.420Z",
-            "headers": [],
+            "created": "2024-03-05T07:42:15.952Z",
+            "modified": "2024-03-05T07:55:49.459Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU2Y2I5NmEzOGExMjFhMzE3ZThmODIiLCJpYXQiOjE3MDk2MjQ5NTksImV4cCI6MTcwOTY1Mzc1OX0.QMB-9fnxR2O481Y5Z-_dGttPmR-A2FCf2gL_3_gQtGQ"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"productName\": \"Jabon zote\",\n  \"productDescription\": \"Un jabon para todo usp\"\n}",
+                "raw": "{\n  \"productName\": \"Powerade\",\n  \"productDescription\": \"Una bebida rehidratante\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
-            "_id": "1a9d2a67-1af1-4e8b-af05-e79e5e769ed4",
-            "colId": "28155c9f-d2a7-489d-af25-e6696aed9378",
+            "_id": "53e114fd-9e76-4361-b5c9-324e5165a62e",
+            "colId": "b8fad9e2-5438-41fa-87ce-53a45b290e77",
             "containerId": "",
             "name": "delete product",
-            "url": "http://localhost:3000/sales/v2/product/65d6c22025134d2a31a41fc9",
+            "url": "http://localhost:3000/sales/v2/product/65e6db0bd57a61ee26e9ff98",
             "method": "DELETE",
             "sortNum": 80000,
-            "created": "2024-02-22T04:24:55.259Z",
-            "modified": "2024-02-22T04:29:12.326Z",
-            "headers": [],
+            "created": "2024-03-05T07:42:15.953Z",
+            "modified": "2024-03-05T08:54:26.758Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU2Y2I5NmEzOGExMjFhMzE3ZThmODIiLCJpYXQiOjE3MDk2MjQ5NTksImV4cCI6MTcwOTY1Mzc1OX0.QMB-9fnxR2O481Y5Z-_dGttPmR-A2FCf2gL_3_gQtGQ"
+                }
+            ],
             "params": [],
+            "reqType": "del",
             "tests": []
         }
     ]

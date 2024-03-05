@@ -177,7 +177,13 @@ export const removedProduct = async (req, res) => {
             });
         } else {
             const product = await Product.findByIdAndUpdate(id, { availability: false });
-            const productDel = await Product.findOne({ _id: id });
+            product.stock = 0;
+            await product.save();
+
+            const productDel = await Product.findOne({ _id: id }).populate({
+                path: "productCategory",
+                select: "categoryName -_id"
+            });
 
             res.status(200).json({
                 msg: 'Removed product',
