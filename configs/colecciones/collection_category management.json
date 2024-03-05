@@ -1,0 +1,93 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "category management",
+    "dateExported": "2024-03-05T10:01:32.133Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "2aff5d2e-01a4-4b75-a9b4-9f052f784bc3",
+            "colId": "f6db2e60-ea26-4118-a645-eb17ddca3c3a",
+            "containerId": "",
+            "name": "post addCategory",
+            "url": "http://localhost:3000/sales/v2/category",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-05T07:42:15.937Z",
+            "modified": "2024-03-05T09:21:44.327Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU2Y2I5NmEzOGExMjFhMzE3ZThmODIiLCJpYXQiOjE3MDk2MjQ5NTksImV4cCI6MTcwOTY1Mzc1OX0.QMB-9fnxR2O481Y5Z-_dGttPmR-A2FCf2gL_3_gQtGQ"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryName\": \"Higiene\",\n  \"categoryDescription\": \"Productos para la higiene personal\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "6f6ff925-3776-478d-8b7c-fb8f8754f69e",
+            "colId": "f6db2e60-ea26-4118-a645-eb17ddca3c3a",
+            "containerId": "",
+            "name": "get categories",
+            "url": "http://localhost:3000/sales/v2/category",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-05T07:42:15.938Z",
+            "modified": "2024-03-05T07:42:15.938Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6ca1b7ad-4269-42b7-8655-30794db29519",
+            "colId": "f6db2e60-ea26-4118-a645-eb17ddca3c3a",
+            "containerId": "",
+            "name": "put category",
+            "url": "http://localhost:3000/sales/v2/category/65e6d308b65c34f5788e54db",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-05T07:42:15.939Z",
+            "modified": "2024-03-05T09:25:30.914Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU2Y2I5NmEzOGExMjFhMzE3ZThmODIiLCJpYXQiOjE3MDk2MjQ5NTksImV4cCI6MTcwOTY1Mzc1OX0.QMB-9fnxR2O481Y5Z-_dGttPmR-A2FCf2gL_3_gQtGQ"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryName\": \"Agua\",\n  \"categoryDescription\": \"para tomar y refrescarse\"\n}",
+                "form": []
+            },
+            "reqType": "put",
+            "tests": []
+        },
+        {
+            "_id": "6122e3e2-3a91-45d4-a781-f34f929ccd2d",
+            "colId": "f6db2e60-ea26-4118-a645-eb17ddca3c3a",
+            "containerId": "",
+            "name": "delete category",
+            "url": "http://localhost:3000/sales/v2/category/65e6d308b65c34f5788e54db",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-05T07:42:15.940Z",
+            "modified": "2024-03-05T09:34:03.323Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU2Y2I5NmEzOGExMjFhMzE3ZThmODIiLCJpYXQiOjE3MDk2MjQ5NTksImV4cCI6MTcwOTY1Mzc1OX0.QMB-9fnxR2O481Y5Z-_dGttPmR-A2FCf2gL_3_gQtGQ"
+                }
+            ],
+            "params": [],
+            "reqType": "del",
+            "tests": []
+        }
+    ]
+}
