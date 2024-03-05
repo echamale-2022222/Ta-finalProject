@@ -5,7 +5,8 @@ import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { dbConnection } from './mongo.js';
-import adminRoutes from '../src/admin/admin.routes.js'
+import bycryptjs from 'bcryptjs';
+import Admin from '../src/admin/admin.model.js';
 import clientRoutes from '../src/client/client.routes.js'
 import authRoutes from '../src/auth/auth.routes.js'
 import productRoutes from '../src/product/product.routes.js'
@@ -17,7 +18,6 @@ class Server{
         this.app = express();
         this.port = process.env.PORT;
         this.authPath = '/sales/v2/auth';
-        this.adminPath = '/sales/v2/admin';
         this.clientPath = '/sales/v2/client';
         this.productPath = '/sales/v2/product';
         this.categoryPath = '/sales/v2/category';
@@ -30,6 +30,16 @@ class Server{
 
     async conectarDB(){
         await dbConnection();
+        const defaultAdmin = new Admin({
+            name: "Administrador",
+            mail: "admin@gmail.com",
+            password: "123456"
+        });
+    
+        const salt = bycryptjs.genSaltSync();
+        defaultAdmin.password = bycryptjs.hashSync(defaultAdmin.password, salt);
+    
+        defaultAdmin.save();
     }
 
     middlewares(){
@@ -42,7 +52,6 @@ class Server{
 
     routes(){
         this.app.use(this.authPath, authRoutes);
-        this.app.use(this.adminPath, adminRoutes);
         this.app.use(this.clientPath, clientRoutes);
         this.app.use(this.productPath, productRoutes);
         this.app.use(this.categoryPath, categoryRoutes);
