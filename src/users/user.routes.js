@@ -1,12 +1,9 @@
 import { Router } from "express";
 import { check } from "express-validator";
 import {addClient, 
-        removedAdmin, 
         removedClient, 
         updateRoleAdmin,
-        updatedAdmin, 
-        updatedClient, 
-        } from "./user.controller.js";
+        updatedClient } from "./user.controller.js";
 import { validateFields } from "../middlewares/validate-fields.js";
 import { validateJWT } from "../middlewares/validate-jwt.js";
 
@@ -31,26 +28,16 @@ router.put(
     ], updateRoleAdmin);
 
 router.put(
-    "/updateAd/:id",
+    "/updateClient/:id",
     [
-        check("id", "It is not a valid id").isMongoId(),      
-    ], updatedAdmin);
-
-router.put(
-    "/updateCl/:id",
-    [
+        validateJWT,
         check("id", "It is not a valid id").isMongoId(),      
     ], updatedClient);
     
 router.delete(
-    "/delAdmin/:id",
-    [
-        check("id", "It is not a valid id").isMongoId(),
-    ], removedAdmin);
-
-router.delete(
     "/delClient/:id",
     [
+        validateJWT,
         check("id", "It is not a valid id").isMongoId(),
     ], removedClient);
 

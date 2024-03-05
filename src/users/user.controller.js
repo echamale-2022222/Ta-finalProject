@@ -42,9 +42,9 @@ export const updateRoleAdmin = async (req, res = response) => {
             const upgradeToAdmin = await Client.findById(id);
             const customerToAdmin = new Admin(upgradeToAdmin.toObject());
             const deleteCustomer = await Client.findByIdAndDelete(id);
-            
+
             await customerToAdmin.save();
-            
+
             const admin = await Admin.findOne({ _id: id });
             res.status(200).json({
                 msg: "Customer updated to admin",
@@ -60,59 +60,91 @@ export const updateRoleAdmin = async (req, res = response) => {
             msg: "You don't have the necessary permissions, only the main admin can do this action."
         });
     }
-
-    await Client.findByIdAndUpdate(id, rest);
-
 }
 
-export const updatedAdmin = async (req, res) => {
+export const updatedRoleClient = async (req, res) => {
     const { id } = req.params;
-    const { _id, role, state, ...rest } = req.body;
+    const { _id, name, mail, password, state, ...rest } = req.body;
+    const admin = req.admin.role;
 
-    await Admin.findByIdAndUpdate(id, rest);
+    if (req.admin.mail !== "admin@gmail.com") {
+        return res.status(401).json({
+            msg: "You don't have the necessary permissions"
+        });
+    } else if (admin === "ADMIN") {
+        const client = await Client.findById(id);
 
-    const admin = await Admin.findOne({ _id: id });
+        if (!client) {
+            await Admin.findByIdAndUpdate(id, rest);
+            const upgradeToClient = await Admin.findById(id);
+            const adminToCustomer = new Client(upgradeToClient.toObject());
+            const deleteAdmin = await Admin.findByIdAndDelete(id);
 
-    res.status(200).json({
-        msg: "Updated admin",
-        admin
-    });
+            await adminToCustomer.save();
+
+            const client = await Client.findOne({ _id: id });
+            res.status(200).json({
+                msg: "Admin upgraded to Customer",
+                client
+            });
+        } else {
+            return res.status(404).json({
+                msg: "Client already exists"
+            });
+        }
+    } else {
+        return res.status(401).json({
+            msg: "You don't have the necessary permissions, only the main admin can do this action."
+        });
+    }
 }
 
 export const updatedClient = async (req, res) => {
     const { id } = req.params;
-    const { _id, role, state, ...rest } = req.body;
+    const { _id, state, ...rest } = req.body;
+    const admin = req.admin.role;
 
-    await Client.findByIdAndUpdate(id, rest);
+    if (req.admin.mail !== "admin@gmail.com") {
+        return res.status(401).json({
+            msg: "You don't have the necessary permissions"
+        });
+    } else if (admin === "ADMIN") {
 
-    const client = await Client.findOne({ _id: id });
+        const client = await Client.findByIdAndUpdate(id, rest);
 
-    res.status(200).json({
-        msg: "Updated client",
-        client
-    });
-}
+        const clientUpdate = await Client.findOne({ _id: id });
+        res.status(200).json({
+            msg: "Customer update",
+            clientUpdate
+        });
 
-export const removedAdmin = async (req, res) => {
-    const { id } = req.params;
-
-    const admin = await Admin.findByIdAndUpdate(id, { state: false });
-    const adminDel = await Admin.findOne({ _id: id });
-
-    res.status(200).json({
-        msg: "Removed Admin",
-        adminDel
-    });
+    } else {
+        return res.status(401).json({
+            msg: "You don't have the necessary permissions, only the main admin can do this action."
+        });
+    }
 }
 
 export const removedClient = async (req, res) => {
     const { id } = req.params;
+    const admin = req.admin.role;
 
-    const client = await Client.findByIdAndUpdate(id, { state: false });
-    const clientDel = await Client.findOne({ _id: id });
+    if (req.admin.mail !== "admin@gmail.com") {
+        return res.status(401).json({
+            msg: "You don't have the necessary permissions"
+        });
+    } else if (admin === "ADMIN"){
 
-    res.status(200).json({
-        msg: "Removed client",
-        clientDel
-    });
+        const client = await Client.findByIdAndUpdate(id, { state: false });
+        const clientDel = await Client.findOne({ _id: id });
+    
+        res.status(200).json({
+            msg: "Removed client",
+            clientDel
+        });
+    } else {
+        return res.status(401).json({
+            msg: "You don't have the necessary permissions, only the main admin can do this action."
+        });
+    }
 }
