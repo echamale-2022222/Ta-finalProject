@@ -30,16 +30,24 @@ class Server{
 
     async conectarDB(){
         await dbConnection();
-        const defaultAdmin = new Admin({
-            name: "Administrador",
-            mail: "admin@gmail.com",
-            password: "123456"
-        });
-    
-        const salt = bycryptjs.genSaltSync();
-        defaultAdmin.password = bycryptjs.hashSync(defaultAdmin.password, salt);
-    
-        defaultAdmin.save();
+        
+
+        const adminExists = await Admin.findOne({ mail: "admin@gmail.com" });
+
+        if (!adminExists) {
+            const defaultAdmin = new Admin({
+                name: "Administrador",
+                mail: "admin@gmail.com",
+                password: "123456"
+            });
+
+            const salt = bycryptjs.genSaltSync();
+            defaultAdmin.password = bycryptjs.hashSync(defaultAdmin.password, salt);
+        
+            defaultAdmin.save();
+        } else {
+            console.log('Admin already exists');
+        }
     }
 
     middlewares(){
