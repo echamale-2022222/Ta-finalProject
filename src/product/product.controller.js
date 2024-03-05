@@ -71,7 +71,7 @@ export const productsInventory = async (req, res) => {
 }
 
 export const soldOut = async (req, res) => {
-    const query = { availability: false };
+    const query = { stock: 0, availability: false};
 
     const [productsOutOfStock, products] = await Promise.all([
         Product.countDocuments(query),
@@ -88,14 +88,9 @@ export const soldOut = async (req, res) => {
 
 export const mostSoldProduct = async (req, res) => {
     try {
-        const mostSoldAvailableProducts = await Product.aggregate([
-            { $match: { availability: true, timesBought: { $gt: 0 } } },
-            { $group: { _id: "$timesBought", products: { $push: "$$ROOT" } } },
-            { $sort: { "_id": -1 } },
-            { $limit: 5 },
-            { $unwind: "$products" },
-            { $replaceRoot: { newRoot: "$products" } }
-        ]);
+        const mostSoldAvailableProducts = await Product.find({ availability: true, timesBought: { $gt: 0 } })
+            .sort({ timesBought: -1 })
+            .limit(10);
 
         if (mostSoldAvailableProducts.length === 0) {
             return res.status(404).json({
