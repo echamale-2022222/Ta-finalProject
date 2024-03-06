@@ -36,4 +36,39 @@ export const validateJWT = async(req = request, res = response, next)=> {
             msg: "Invalid token"
         })
     }
-} 
+}
+
+export const validateClientJWT = async(req = request, res = response, next)=> {
+    const token = req.header('x-token');
+
+    if(!token){
+        return res.status(401).json({
+            msg: 'There is no token in the request',
+        });
+    }
+
+    try{
+        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+        const client = await Client.findById(uid);
+        if(!client){
+            return res.status(401).json({
+                msg: "Client does not exist in the database"
+            });
+        }
+
+        if(!client.state){
+            return res.status(401).json({
+                msg: "Invalid token, client with false status"
+            });
+        }
+
+        req.client = client;
+        next();
+        
+    }catch(e){
+        console.log(e);
+        res.status(401).json({
+            msg: "Invalid token"
+        })
+    }
+}
