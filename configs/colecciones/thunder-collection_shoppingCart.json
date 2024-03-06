@@ -1,0 +1,33 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "shoppingCart",
+    "dateExported": "2024-03-06T23:13:05.439Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f50ae7d7-5ebd-4d13-98ba-8798281beb0a",
+            "colId": "04da4660-3c4f-4d57-ac6b-16fe079f5e8e",
+            "containerId": "",
+            "name": "post addProductCart",
+            "url": "http://localhost:3000/sales/v2/shoppingCart/add",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-06T22:03:58.348Z",
+            "modified": "2024-03-06T22:23:35.508Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU4ZTk2Yjc1YmNjYzc1YmQ5OWM3YzUiLCJpYXQiOjE3MDk3NjI5MzEsImV4cCI6MTcwOTc5MTczMX0.fxcgkNY1ZTcvUfRj5NHptWiXqlqDzoAoMCz5l6dl8bs"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"productName\": \"Coca3L\",\n  \"quantity\": 15\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
