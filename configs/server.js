@@ -13,6 +13,7 @@ import productRoutes from '../src/product/product.routes.js'
 import categoryRoutes from '../src/category/category.routes.js'
 import userRoutes from '../src/users/user.routes.js'
 import cartRoutes from '../src/shoppingCart/shoppingCart.routes.js'
+import invoiceRoutes from '../src/invoice/invoice.routes.js'
 
 class Server{
     constructor(){
@@ -24,6 +25,7 @@ class Server{
         this.categoryPath = '/sales/v2/category';
         this.userPath = '/sales/v2/user';
         this.cartPath = '/sales/v2/shoppingCart';
+        this.invoicePath = '/sales/v2/invoice';
 
         this.middlewares();
         this.conectarDB();
@@ -67,6 +69,7 @@ class Server{
         this.app.use(this.categoryPath, categoryRoutes);
         this.app.use(this.userPath, userRoutes);
         this.app.use(this.cartPath, cartRoutes);
+        this.app.use(this.invoicePath, invoiceRoutes);
     }
 
     listen(){

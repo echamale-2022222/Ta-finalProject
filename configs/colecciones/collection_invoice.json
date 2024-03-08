@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "invoice",
+    "dateExported": "2024-03-08T23:50:58.001Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "cb83e744-9aa8-4f1b-8de0-1e7cb75d9fd2",
+            "colId": "b85aaa88-5360-4198-bab8-b0d04bd560ac",
+            "containerId": "",
+            "name": "post addInvoice",
+            "url": "http://localhost:3000/sales/v2/invoice",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-08T23:42:34.309Z",
+            "modified": "2024-03-08T23:46:11.766Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWViYTMyODRkZjI3ZDQwZTcyZWU4OWEiLCJpYXQiOjE3MDk5NDE1NTQsImV4cCI6MTcwOTk3MDM1NH0.CSzwK_SLdAaMoFq-AaT0hXbcbpyHhjZU4EExdXFNC28"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

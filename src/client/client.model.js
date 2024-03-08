@@ -18,6 +18,10 @@ const ClientSchema = mongoose.Schema({
     type: String,
     default: "CLIENT"
   },
+  invoice: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Invoice'
+  },
   state: {
     type: Boolean,
     default: true
